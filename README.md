@@ -16,3 +16,9 @@
 
 `go run main.go help word`
 `go run main.go word -s=eddcycj -m=1`
+
+驗證時間工具
+
+`go run main.go time now`
+`go run main.go time calc -c="2029-09-0412:02:33" -d=5m`
+`go run main.go time calc -c="2029-09-0412:02:33" -d=-2h`
