@@ -12,6 +12,9 @@
 
 `go get -u github.com/spf13/cobra@v1.0.0`
 
+確認初始的 flag 可運作
+`go run flag/flag.go`
+
 驗證單字轉換功能
 
 `go run main.go help word`
@@ -22,3 +25,7 @@
 `go run main.go time now`
 `go run main.go time calc -c="2029-09-0412:02:33" -d=5m`
 `go run main.go time calc -c="2029-09-0412:02:33" -d=-2h`
+
+驗證資料庫轉換
+
+`go run main.go sql struct --username 帳號 --password 密碼 --db=名稱 --table "表名"`
