@@ -4,16 +4,13 @@
 [nil](https://stackoverflow.com/questions/35983118/what-does-nil-mean-in-golang)
 
 
-建立相關套件管理 & 初始化模塊
+建立相關套件管理 & 初始化模塊 (main.go 跟 go.mod 同一路徑才吃的到設定)( package 名稱盡量與資料夾名稱相同)
 
 `go mod init 專案名稱`
 
 安裝 Cobra 基礎函數庫
 
 `go get -u github.com/spf13/cobra@v1.0.0`
-
-確認初始的 flag 可運作
-`go run flag/flag.go`
 
 驗證單字轉換功能
 

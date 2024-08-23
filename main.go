@@ -1,3 +1,10 @@
+package main
+
+import (
+	"go_init/cmd"
+	"log"
+)
+
 func main() {
 	err := cmd.Execute()
 	if err != nil {

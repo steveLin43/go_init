@@ -1,3 +1,12 @@
+package sql2struct
+
+import (
+	"fmt"
+	"go_init/internal/word"
+	"os"
+	"text/template"
+)
+
 // 預先定義結構範本
 const structTpl = `type {{.TableName | ToCamelCase}} struct {
 {{range .Columns}} {{ $length := len .Comment}} {{ if gt $length 0 }}//
@@ -15,19 +24,19 @@ type StructTemplate struct {
 }
 
 type StructColumn struct {
-	Name	string
-	Type	string
-	Tag		string
+	Name    string
+	Type    string
+	Tag     string
 	Comment string
 }
 
 type StructTemplateDB struct {
 	TableName string
-	Columns	  []*StructColumn
+	Columns   []*StructColumn
 }
 
 func NewStructTemplate() *StructTemplate {
-	return &StructTemplate(structTpl: structTpl)
+	return &StructTemplate{structTpl: structTpl}
 }
 
 func (t *StructTemplate) AssemblyColumns(tbColumns []*TableColumn) []*StructColumn {
@@ -35,9 +44,9 @@ func (t *StructTemplate) AssemblyColumns(tbColumns []*TableColumn) []*StructColu
 	for _, column := range tbColumns {
 		tag := fmt.Sprintf("`"+"json:"+"\"%s\""+"`", column.ColumnName)
 		tplColumns = append(tplColumns, &StructColumn{
-			Name:	 column.ColumnName,
-			Type:	 DBTypeToStructType[column.DataType]
-			Tag:	 tag,
+			Name:    column.ColumnName,
+			Type:    DBTypeToStructType[column.DataType],
+			Tag:     tag,
 			Comment: column.ColumnComment,
 		})
 	}

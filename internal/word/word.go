@@ -1,3 +1,10 @@
+package word
+
+import (
+	"strings"
+	"unicode"
+)
+
 func ToUpper(s string) string {
 	return strings.ToUpper(s)
 }
@@ -14,7 +21,7 @@ func UnderscoreToUpperCamelCase(s string) string {
 
 func UnderscoreToLowerCamelCase(s string) string {
 	s = UnderscoreToUpperCamelCase(s)
-	return strings(unicode.ToLower(rune(s[0]))) + s[1:]
+	return string(unicode.ToLower(rune(s[0]))) + s[1:]
 }
 
 func CamelCaseToUnderscore(s string) string {

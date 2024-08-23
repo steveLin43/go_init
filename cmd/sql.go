@@ -1,3 +1,12 @@
+package cmd
+
+import (
+	"go_init/internal/sql2struct"
+	"log"
+
+	"github.com/spf13/cobra"
+)
+
 // 初始化子指令
 var username string
 var password string
@@ -18,13 +27,13 @@ var sql2structCmd = &cobra.Command{
 	Use:   "struct",
 	Short: "sql 轉換",
 	Long:  "sql 轉換",
-	Run:   func(cmd *cobra.Command, args []string) {
+	Run: func(cmd *cobra.Command, args []string) {
 		dbInfo := &sql2struct.DBInfo{
-			DBType:	  dbType,
-			Host:	  host,
+			DBType:   dbType,
+			Host:     host,
 			UserName: username,
 			Password: password,
-			Charset:  charset, 
+			Charset:  charset,
 		}
 		dbModel := sql2struct.NewDBModel(dbInfo)
 		err := dbModel.Connect()

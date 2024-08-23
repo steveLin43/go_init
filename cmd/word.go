@@ -1,9 +1,19 @@
+package cmd
+
+import (
+	"go_init/internal/word"
+	"log"
+	"strings"
+
+	"github.com/spf13/cobra"
+)
+
 const (
-	ModeUpper			= iota + 1  // 全部單字轉為大寫
-	ModeLower						// 全部單字轉為小寫
-	ModeUnderscoreToUpperCamelCase	// 底線單字轉為大寫駝峰
-	ModeUnderscoreToLowerCamelCase	// 底線單字轉為小寫駝峰
-	ModeCamelCaseToUnderscore		// 駝峰單字轉為底線單字
+	ModeUpper                      = iota + 1 // 全部單字轉為大寫
+	ModeLower                                 // 全部單字轉為小寫
+	ModeUnderscoreToUpperCamelCase            // 底線單字轉為大寫駝峰
+	ModeUnderscoreToLowerCamelCase            // 底線單字轉為小寫駝峰
+	ModeCamelCaseToUnderscore                 // 駝峰單字轉為底線單字
 )
 
 var desc = strings.Join([]string{
@@ -16,9 +26,9 @@ var desc = strings.Join([]string{
 }, "\n")
 
 var wordCmd = &cobra.Command{
-	Use: "word",
+	Use:   "word",
 	Short: "單字格式轉換",
-	Long: "支援多種單字格式轉換",
+	Long:  "支援多種單字格式轉換",
 	Run: func(cmd *cobra.Command, args []string) {
 		var content string
 		switch mode {
@@ -44,5 +54,5 @@ var mode int8
 
 func init() {
 	wordCmd.Flags().StringVarP(&str, "str", "s", "", "請輸入單字內容")
-	wordCmd.Flags().Int8VarP(&mode, "mode", "m", 0, "請輸入單字內容")
+	wordCmd.Flags().Int8VarP(&mode, "mode", "m", 0, "請輸入轉換類型")
 }
