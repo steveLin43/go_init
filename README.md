@@ -8,6 +8,7 @@
 
 ```
 go mod init 專案名稱
+go mod tidy
 ```
 
 安裝 Cobra 基礎函數庫
