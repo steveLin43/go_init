@@ -1,4 +1,7 @@
 # go_init
+
+參考資料：《用 Go 語言完成 6 個大型專案》第一章節 + https://github.com/go-programming-tour-book/tour
+
 ### https://github.com/golang/go
 [Go 基本介紹](https://sz9751210.github.io/posts/go-variable-and-const/)
 [nil](https://stackoverflow.com/questions/35983118/what-does-nil-mean-in-golang)
